@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import { type } from '@testing-library/user-event/dist/type';
 import './App.css';
+import React from 'react';
+import { Chrono } from 'react-chrono'; 
 
 function App() {
+  const items = [
+    {
+      title: "March 1957",
+      cardTitle: "Mark Dean Is Born",
+      cardSubtitle: "He's Important For This So Pay Attention",
+      cardDetailedText: "Mark Dean was born in Jefferson City, Tennessee.",
+      media: {
+        source: {
+          url:"https://upload.wikimedia.org/wikipedia/commons/8/8a/Downtown_Jefferson_City_looking_west.jpg"
+        },
+        type: "IMAGE",
+        title: "Jefferson City, Tennessee"
+
+      }
+    },
+  ];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Chrono
+      items={items}
+      mode="VERTICAL_ALTERNATING"
+      highlightCardsOnHover={true}
+    />
   );
 }
 
